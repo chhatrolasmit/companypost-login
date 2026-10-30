@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Company Post</title></head>
+<html lang="gu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>કંપની પોસ્ટ</title>
+<style>
+body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #12372A; color: #fff; font-family: sans-serif; }
+.card { width: 100%; max-width: 420px; padding: 28px; box-sizing: border-box; }
+h1 { margin: 0 0 12px; font-size: 28px; }
+p { line-height: 1.45; }
+a { display: inline-block; margin-top: 18px; background: #F4C95D; color: #12372A; text-decoration: none; font-weight: 700; padding: 12px 18px; }
+</style>
+</head>
 <body>
-<p>Returning to the app.</p>
+<div class="card">
+<h1>કંપની પોસ્ટ</h1>
+<p id="msg">એપ ખુલી રહી છે.</p>
+<a id="open" href="#">એપ ખોલો</a>
+</div>
 <script>
 var search = window.location.search || "";
+var appUrl = "companypost://oauth" + search;
+var open = document.getElementById("open");
+open.href = appUrl;
 if (search.indexOf("code=") !== -1 || search.indexOf("error=") !== -1) {
-  window.location.replace("companypost://oauth" + search);
+  window.location.replace(appUrl);
+} else {
+  document.getElementById("msg").textContent = "આ પાનું કંપની પોસ્ટના Instagram જોડાણ માટે છે.";
 }
 </script>
 </body>
