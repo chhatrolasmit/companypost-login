@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Company Post</title></head>
+<body>
+<p>Returning to the app.</p>
+<script>
+var search = window.location.search || "";
+if (search.indexOf("code=") !== -1 || search.indexOf("error=") !== -1) {
+  window.location.replace("companypost://oauth" + search);
+}
+</script>
+</body>
+</html>
